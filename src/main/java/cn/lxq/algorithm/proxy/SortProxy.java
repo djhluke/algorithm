@@ -25,7 +25,7 @@ public class SortProxy {
 
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 Long startTime = System.currentTimeMillis();
-                // method.setAccessible(true);
+                method.setAccessible(true);
                 method.invoke(sort, args);
                 Long endTime = System.currentTimeMillis();
                 System.out.println(sort.getClass().getName() + ": " + (endTime - startTime) + "ms");
