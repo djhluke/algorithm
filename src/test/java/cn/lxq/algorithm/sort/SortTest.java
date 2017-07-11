@@ -5,10 +5,7 @@ package cn.lxq.algorithm.sort;
  */
 
 import cn.lxq.algorithm.proxy.SortProxy;
-import cn.lxq.algorithm.sort.extend.BubbleSort;
-import cn.lxq.algorithm.sort.extend.InsertSort;
-import cn.lxq.algorithm.sort.extend.QuickSort;
-import cn.lxq.algorithm.sort.extend.SelectSort;
+import cn.lxq.algorithm.sort.extend.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +14,7 @@ import java.util.Random;
 
 public class SortTest {
 
-    int[] a = new int[10000];
+    int[] a = new int[30000];
 
     @Before
     public void before() {
@@ -42,8 +39,15 @@ public class SortTest {
     }
 
     @Test
-    public void insertSort() {
-        Sort sort = new InsertSort();
+    public void straightInsertSort() {
+        Sort sort = new StraightInsertSort();
+        sort.sort(a);
+        System.out.println(Arrays.toString(a));
+    }
+
+    @Test
+    public void shellSort() {
+        Sort sort = new ShellSort();
         sort.sort(a);
         System.out.println(Arrays.toString(a));
     }
@@ -59,7 +63,8 @@ public class SortTest {
     public void takeTime() {
         sortTime(BubbleSort.class);
         sortTime(SelectSort.class);
-        sortTime(InsertSort.class);
+        sortTime(StraightInsertSort.class);
+        sortTime(ShellSort.class);
         sortTime(QuickSort.class);
     }
 

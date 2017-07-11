@@ -24,9 +24,13 @@ public class SortProxy {
         InvocationHandler handler = new InvocationHandler() {
 
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                // 运行方法前
                 Long startTime = System.currentTimeMillis();
+                // 设置方法访问权限
                 method.setAccessible(true);
+                // 运行方法
                 method.invoke(sort, args);
+                // 运行方法后
                 Long endTime = System.currentTimeMillis();
                 System.out.println(sort.getClass().getName() + ": " + (endTime - startTime) + "ms");
                 return null;
