@@ -1,10 +1,10 @@
 package cn.lxq.algorithm.proxy;
 
+import cn.lxq.algorithm.sort.Sort;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-
-import cn.lxq.algorithm.sort.Sort;
 
 /**
  * Created by luxinqiang on 2017/4/27.

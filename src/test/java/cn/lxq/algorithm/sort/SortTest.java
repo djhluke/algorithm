@@ -3,15 +3,17 @@ package cn.lxq.algorithm.sort;
 /**
  * Created by luxinqiang on 2017/4/27.
  */
-import java.util.Arrays;
-import java.util.Random;
 
+import cn.lxq.algorithm.proxy.SortProxy;
+import cn.lxq.algorithm.sort.extend.BubbleSort;
+import cn.lxq.algorithm.sort.extend.InsertSort;
+import cn.lxq.algorithm.sort.extend.QuickSort;
+import cn.lxq.algorithm.sort.extend.SelectSort;
 import org.junit.Before;
 import org.junit.Test;
 
-import cn.lxq.algorithm.proxy.SortProxy;
-import cn.lxq.algorithm.sort.Sort;
-import cn.lxq.algorithm.sort.extend.*;
+import java.util.Arrays;
+import java.util.Random;
 
 public class SortTest {
 
@@ -71,7 +73,7 @@ public class SortTest {
             e.printStackTrace();
         }
         SortProxy sortProxy = new SortProxy(sort);
-        Sort proxy = (Sort) sortProxy.createProxy();
+        Sort proxy = sortProxy.createProxy();
         proxy.sort(Arrays.copyOf(a, a.length));
     }
 
